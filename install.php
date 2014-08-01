@@ -1,6 +1,10 @@
 ﻿<?php
 if(isset($_GET['install'])){
-	if(isset($_POST['mysql_host'],$_POST['mysql_login'],$_POST['mysql_password'],$_POST['mysql_db'],$_POST['mysql_alias'],$_POST['admin_pseudo'],$_POST['admin_password'])){
+	if(isset($_POST['mysql_host'],$_POST['mysql_login'],$_POST['mysql_password'],$_POST['mysql_db'],$_POST['mysql_alias'],$_POST['admin_pseudo'],$_POST['admin_password'],$_POST['language'])){
+		$lang = $_POST['language'];
+		if(!($lang == "en" OR $lang == "fr")){
+			die("Please select a correct language.");
+		}
 		$mysql_host = htmlspecialchars($_POST['mysql_host'], ENT_QUOTES);
 		$mysql_login = htmlspecialchars($_POST['mysql_login'], ENT_QUOTES);
 		$mysql_password = htmlspecialchars($_POST['mysql_password'], ENT_QUOTES);
@@ -24,7 +28,7 @@ if(isset($_GET['install'])){
 		$configFile .= '$mysql_db = "'.$mysql_db.'";'."\n";
 		$configFile .= '$mysql_alias = "'.$mysql_alias.'";'."\n";
 		$configFile .= '$mysql_table = $mysql_alias."users";'."\n";
-		$configFile .= '$lang = "fr";'."\n";
+		$configFile .= '$lang = "'.$lang.'";'."\n";
 		$configFile .= '$auth = true;'."\n";
 		$configFile .= '$unLoggedPermissions = array("view","upload","delete");';
 		
@@ -96,39 +100,47 @@ if(isset($_GET['install'])){
 		</header>
 		<section>
 			<h1>OpenRepo - Installation</h1>
+			<p>Please fill the following fields.</p>
 			<form action="?install" method="post">
 				<table>
 					<tr>
-						<td>mysql_host</td>
-						<td><input type="text" name="mysql_host" id="mysql_host" required /></td>
+						<td>MySQL host</td>
+						<td><input type="text" name="mysql_host" id="mysql_host" required placeholder="Example: localhost" /></td>
 					</tr>
 					<tr>
-						<td>mysql_login</td>
-						<td><input type="text" name="mysql_login" id="mysql_login" required /></td>
+						<td>MySQL login</td>
+						<td><input type="text" name="mysql_login" id="mysql_login" required placeholder="Example: root" /></td>
 					</tr>
 					<tr>
-						<td>mysql_password</td>
+						<td>MySQL password</td>
 						<td><input type="text" name="mysql_password" id="mysql_password" /></td>
 					</tr>
 					<tr>
-						<td>mysql_db</td>
+						<td>MySQL database name</td>
 						<td><input type="text" name="mysql_db" id="mysql_db" required /></td>
 					</tr>
 					<tr>
-						<td>mysql_alias</td>
+						<td>MySQL alias</td>
 						<td><input type="text" name="mysql_alias" id="mysql_alias" value="or_" required /></td>
 					</tr>
 					<tr>
-						<td>admin_pseudo</td>
+						<td>Administrator login</td>
 						<td><input type="text" name="admin_pseudo" id="admin_pseudo" value="admin" required /></td>
 					</tr>
 					<tr>
-						<td>admin_password</td>
+						<td>Administrator password</td>
 						<td><input type="text" name="admin_password" id="admin_password" /></td>
 					</tr>
 					<tr>
+						<td>Language</td>
+						<td><select name="language">
+							<option value="en" selected>English</option>
+							<option value="fr">Français</option>
+						<select></td>
+					</tr>
+					<tr>
 						<td></td>
-						<td><input type="submit" value="Continuer" /></td>
+						<td><input type="submit" value="Next" /></td>
 					</tr>
 				</table>
 			</form>

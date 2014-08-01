@@ -140,7 +140,7 @@ if($voir){
 					$files .='<tr class="fichier" ondblclick="window.open(\''.htmlspecialchars($fichier).'\');" value="'.htmlspecialchars($fichier).'"><td title="Supprimer '.htmlspecialchars($fichier).'" onclick="supprimer(\''.htmlspecialchars($fichier).'\')" class="file delete"><span style="display:none">Fichier</span></td><td><a href="'.htmlspecialchars($fichier).'" target="_blank">'.htmlspecialchars($fichier).'</a></td><td title="Ajouté le '.date ("d/m/Y à H:i", filemtime($fichier)).'">'.date ("d/m/Y", filemtime($fichier)).'</td><td><span style="display:none">'.filesize($fichier).'</span> '.size($fichier, $lang_size).'</td></tr>';
 				}
 				else {
-					$files .='<tr class="fichier" ondblclick="window.open(\''.htmlspecialchars($fichier).'\');" value="'.htmlspecialchars($fichier).'"><td class="file"><span style="display:none">Fichier</span></td><td><a href="'.htmlspecialchars($fichier).'" target="_blank">'.htmlspecialchars($fichier).'</a></td><td title="Ajouté le '.date ($lang_formatDateTime, filemtime($fichier)).'">'.date ($lang_formatDate, filemtime($fichier)).'</td><td><span style="display:none">'.filesize($fichier).'</span> '.size($fichier, $lang_size).'</td></tr>';
+					$files .='<tr class="fichier" ondblclick="window.open(\''.htmlspecialchars($fichier).'\');" value="'.htmlspecialchars($fichier).'"><td class="file"><span style="display:none">Fichier</span></td><td><a href="'.htmlspecialchars($fichier).'" target="_blank">'.htmlspecialchars($fichier).'</a></td><td title="'.date ($lang_formatDateTime, filemtime($fichier)).'">'.date ($lang_formatDate, filemtime($fichier)).'</td><td><span style="display:none">'.filesize($fichier).'</span> '.size($fichier, $lang_size).'</td></tr>';
 				}
 			} 
 		} 
