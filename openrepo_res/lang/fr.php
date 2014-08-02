@@ -23,7 +23,7 @@ $lang_permissions = array(
 	"view"=>"Voir",
 	"upload"=>"Uploader",
 	"delete"=>"Supprimer",
-	"god"=>"God"
+	"god"=>"Administrateur"
 );
 $lang_filesListLabel = array(
 	"name"=>"Nom",
