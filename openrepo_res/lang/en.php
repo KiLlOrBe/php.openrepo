@@ -54,7 +54,7 @@ $lang_size = array(
 	"kilo"=>"Ko",
 	"bytes"=>"bytes"
 );
-$lang_formatDateTime = "m/d/Y à H:i";
+$lang_formatDateTime = 'm/d/Y \a\t h:i A';
 $lang_formatDate = "m/d/Y";
 $lang_manageDir = array(
 	"createDir"=>"Create a new directory",

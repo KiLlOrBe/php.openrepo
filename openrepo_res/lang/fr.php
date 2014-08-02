@@ -1,4 +1,5 @@
 <?php
+$lang_name = "Français";
 $lang_uploadErrors = array(
 	"perm"=>"Vous n'avez pas la permission pour uploader",
 	"disable"=>"L'upload est désactivé dans ce dossier",
