@@ -5,7 +5,7 @@ OpenRepo is a project of a file explorer in PHP using a permission system and th
 
 Deploying the application to the server
 ---------------------------------------
-You have to copy install.php and openrepo_res/ on your server and change the chmod of the server directory's and make sure that the script has the writting permission. Then you have to launch install.php from your browser.
+You have to copy install.php and openrepo_res/ on your server and make sure that the script has the writting permission. Then you have to launch install.php from your browser.
 
 You have to fill:
 - MySQL parameters
